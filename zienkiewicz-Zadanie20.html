@@ -1,62 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-    <title>Zadanie 20</title>
-    <script language="JavaScript">
-        function AB_zie() {
-            const xa = parseFloat(document.getElementById("xa").value);
-            const ya = parseFloat(document.getElementById("ya").value);
-            const xb = parseFloat(document.getElementById("xb").value);
-            const yb = parseFloat(document.getElementById("yb").value);
-
-
-            const AB = Math.sqrt(Math.pow(xb - xa, 2) + Math.pow(yb - ya, 2));
-			
-            document.getElementById("nazwa").innerHTML = `Długość boku AB = {AB.toFixed(2)}`;
+    <meta charset="UTF-8">
+    <title>Zadanie 20 Zienkiewicz</title>
+    <script>
+        function obliczDlugosc(x1, y1, x2, y2) {
+            return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)).toFixed(2);
         }
-
-        function BC_zie() {
-            const xb = parseFloat(document.getElementById("xb").value);
-            const yb = parseFloat(document.getElementById("yb").value);
-            const xc = parseFloat(document.getElementById("xc").value);
-            const yc = parseFloat(document.getElementById("yc").value);
-
-           
-            const BC = Math.sqrt(Math.pow(xc - xb, 2) + Math.pow(yc - yb, 2));
-            document.getElementById("nazwa").innerHTML = `Długość boku BC = {BC.toFixed(2)}`;
-        }
-
-        function AC_zie() {
-            const xa = parseFloat(document.getElementById("xa").value);
-            const ya = parseFloat(document.getElementById("ya").value);
-            const xc = parseFloat(document.getElementById("xc").value);
-            const yc = parseFloat(document.getElementById("yc").value);
-
-          
-            const AC = Math.sqrt(Math.pow(xc - xa, 2) + Math.pow(yc - ya, 2));
-            document.getElementById("nazwa").innerHTML = `Długość boku AC = {AC.toFixed(2)}`;
+        
+        function Dlugosci() {
+            let xa = parseFloat(document.getElementById('xa_zie').value) || 0;
+            let ya = parseFloat(document.getElementById('ya_zie').value) || 0;
+            let xb = parseFloat(document.getElementById('xb_zie').value) || 0;
+            let yb = parseFloat(document.getElementById('yb_zie').value) || 0;
+            let xc = parseFloat(document.getElementById('xc_zie').value) || 0;
+            let yc = parseFloat(document.getElementById('yc_zie').value) || 0;
+            
+            document.getElementById('dlugoscAB').innerText = `Długość AB: ${obliczDlugosc(xa, ya, xb, yb)} cm`;
+            document.getElementById('dlugoscBC').innerText = `Długość BC: ${obliczDlugosc(xb, yb, xc, yc)} cm`;
+            document.getElementById('dlugoscAC').innerText = `Długość AC: ${obliczDlugosc(xa, ya, xc, yc)} cm`;
         }
     </script>
 </head>
 <body>
     <h1>Oblicz długości boków trójkąta</h1>
-    
-    <h2>Punkt A</h2>
-    Podaj xa = <input type="text" id="xa"><br>
-    Podaj ya = <input type="text" id="ya"><br><br>
-
-    <h2>Punkt B</h2>
-    Podaj xb = <input type="text" id="xb"><br>
-    Podaj yb = <input type="text" id="yb"><br><br>
-
-    <h2>Punkt C</h2>
-    Podaj xc = <input type="text" id="xc"><br>
-    Podaj yc = <input type="text" id="yc"><br><br>
-
-    <input type="button" value="Oblicz |AB|" onclick="AB_zie()"><br>
-    <input type="button" value="Oblicz |BC|" onclick="BC_zie()"><br>
-    <input type="button" value="Oblicz |AC|" onclick="AC_zie()"><br><br>
-    
-    <div style="font-size:50pxt;"id="nazwa"></div>
+    <label>xa: <input type="number" id="xa_zie" placeholder="xa"> cm</label><br>
+    <label>ya: <input type="number" id="ya_zie" placeholder="ya"> cm</label><br>
+    <label>xb: <input type="number" id="xb_zie" placeholder="xb"> cm</label><br>
+    <label>yb: <input type="number" id="yb_zie" placeholder="yb"> cm</label><br>
+    <label>xc: <input type="number" id="xc_zie" placeholder="xc"> cm</label><br>
+    <label>yc: <input type="number" id="yc_zie" placeholder="yc"> cm</label><br>
+    <button onclick="Dlugosci();">Oblicz długości boków</button><br><br>
+    <div id="dlugoscAB"></div>
+    <div id="dlugoscBC"></div>
+    <div id="dlugoscAC"></div>
 </body>
 </html>
