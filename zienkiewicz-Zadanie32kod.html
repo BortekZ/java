@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h1>KOD DO ZADANIA 32</h1>
+		<textarea style="width: 98%; height: 300px;">
+            <!DOCTYPE html>
+            <html>
+            
+            <head>
+                <script type="text/javascript">
+            
+                    function Wiezowiec(wysokosc, lokalizacja, liczba_pieter) {
+                        this.wysokosc = wysokosc;
+                        this.lokalizacja = lokalizacja;
+                        this.liczba_pieter = liczba_pieter;
+                    }
+            
+                    Wiezowiec.prototype.wyswietl_informacje = function () {
+                        document.write('Wysokość: ' + this.wysokosc + '<br>');
+                        document.write('Lokalizacja: ' + this.lokalizacja + '<br>');
+                        document.write('Liczba pięter: ' + this.liczba_pieter + '<br>');
+                    };
+            
+                    var wiezowiec1 = new Wiezowiec('250m', 'Gdansk', 60);
+                    var wiezowiec2 = new Wiezowiec('300m', 'Nowy Jork', 80);
+                    var wiezowiec3 = new Wiezowiec('150m', 'Berlin', 45);
+            
+                    function pokazWiezowce() {
+                        wiezowiec1.wyswietl_informacje();
+                        wiezowiec2.wyswietl_informacje();
+                        wiezowiec3.wyswietl_informacje();
+                    }
+            
+                    Wiezowiec.prototype.material_konstrukcyjny = "Stal i szkło";
+            
+                    Wiezowiec.prototype.pokaz_material = function () {
+                        alert('Materiał konstrukcyjny: ' + this.material_konstrukcyjny);
+                    };
+            
+                    pokazWiezowce();
+                    wiezowiec1.pokaz_material();
+                </script>
+            </head>
+            
+            <body>
+                <p>Programowanie Obiektowe</p>
+            </body>
+            
+            </html>
+            
+		</textarea>
+	</body>
+</html>	
